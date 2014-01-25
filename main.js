@@ -105,20 +105,10 @@ function about() {
   SpreadsheetApp.getActiveSpreadsheet().toast('http://ultimateanu.github.io/gdoc-sub-system', 'gDoc Sub System');
 }
 
-function getDataRange() {
-  firstSheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-  return firstSheet.getRange(1 + numHeaderRows, 1 + numHeaderCols, firstSheet.getMaxRows() - numHeaderRows, numSubColumnPairs * 2)
-}
-
 
 /*** Helper Functions ***/
 
-function DateDiffInDays(a, b) {
-  var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-  var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-  return Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
-}
-
 function dateTodayDiff(d) {
-  return DateDiffInDays(new Date(), d);
+  var utcDate = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  return Math.floor((utcDate - Date()) / (1000 * 60 * 60 * 24));
 }
