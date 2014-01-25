@@ -32,11 +32,6 @@ function onOpen() {
   });
   menuEntries.push(null);
   menuEntries.push({
-    name: "Reset",
-    functionName: "reset"
-  });
-  menuEntries.push(null);
-  menuEntries.push({
     name: "About",
     functionName: "about"
   });
@@ -56,15 +51,16 @@ function sendEmail() {
   SpreadsheetApp.getActiveSpreadsheet().toast(toEmail, 'Sending Email', toastTimeout);
 }
 
+// colors all rows
 function updateColors() {
-  dataRange = getDataRange()
-  SpreadsheetApp.getActiveSpreadsheet().toast(dataRange.getHeight(), 'h');
-  dataRange.setBackground("blue");
+  var startRow = 1 + numHeaderRows;
+  var endRow = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].getMaxRows();
+  SpreadsheetApp.getActiveSpreadsheet().toast('updating rows ' + startRow + ' - ' + endRow, 'Started', toastTimeout);
 
-  colorRow(3);
-  colorRow(5);
-  colorRow(7);
-
+  for (var row = startRow; row <= endRow; row++) {
+    colorRow(row);
+  }
+  SpreadsheetApp.getActiveSpreadsheet().toast('updating rows ' + startRow + ' - ' + endRow, 'Finished', toastTimeout);
 }
 
 // colors a row based on the date in first column
@@ -103,10 +99,6 @@ function colorRow(row) {
     rowColors.push('#F3F3F3');
   }
   rowRange.setBackgrounds([rowColors]);
-}
-
-function reset() {
-  SpreadsheetApp.getActiveSpreadsheet().toast('', 'Resetting', toastTimeout);
 }
 
 function about() {
