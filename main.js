@@ -49,6 +49,12 @@ function onEdit(e) {
 
 function sendEmail() {
   SpreadsheetApp.getActiveSpreadsheet().toast(toEmail, 'Sending Email', toastTimeout);
+  firstSheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+
+  for (var row = 1 + numHeaderRows; row <= SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].getMaxRows(); row++) {
+    date = firstSheet.getRange(row, 1).getValue()
+    rowRange = firstSheet.getRange(row, 1 + numHeaderCols, 1, numSubColumnPairs * 2)
+  }
 }
 
 // colors all rows
@@ -60,7 +66,6 @@ function updateColors() {
   for (var row = startRow; row <= endRow; row++) {
     colorRow(row);
   }
-  SpreadsheetApp.getActiveSpreadsheet().toast('updating rows ' + startRow + ' - ' + endRow, 'Finished', toastTimeout);
 }
 
 // colors a row based on the date in first column
@@ -80,7 +85,7 @@ function colorRow(row) {
     return;
   }
 
-  if (dateTodayDiff(date) < -1) {
+  if (dateTodayDiff(date) < 0) {
     rowRange.setBackground('grey');
     return;
   }
@@ -109,6 +114,8 @@ function about() {
 /*** Helper Functions ***/
 
 function dateTodayDiff(d) {
-  var utcDate = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-  return Math.floor((utcDate - Date()) / (1000 * 60 * 60 * 24));
+  var today = new Date();
+  var dateUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+  var todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+  return Math.floor((dateUtc - todayUtc) / (1000 * 60 * 60 * 24));
 }
