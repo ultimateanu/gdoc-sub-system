@@ -65,7 +65,8 @@ function colorRow(row) {
 
   var firstSheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   var date = firstSheet.getRange(row, 1).getValue();
-  var rowRange = firstSheet.getRange(row, 1 + numHeaderCols, 1, numSubColumnPairs * 2);
+  var rowRange = firstSheet.getRange(row, 1 + numHeaderCols, 1,
+    numSubColumnPairs * 2);
 
   if (!(date instanceof Date)) {
     rowRange.setBackground('white');
@@ -107,7 +108,8 @@ function sendEmail() {
     var date = firstSheet.getRange(row, 1).getValue();
 
     if ((date instanceof Date) && dateTodayDiff(date) >= 0) {
-      var rowRange = firstSheet.getRange(row, 1 + numHeaderCols, 1, numSubColumnPairs * 2);
+      var rowRange = firstSheet.getRange(row, 1 + numHeaderCols, 1,
+        numSubColumnPairs * 2);
       var rowData = rowRange.getValues()[0];
       var rowNotes = rowRange.getNotes()[0];
       for (var col = 0; col < rowData.length; col += 2) {
@@ -129,25 +131,35 @@ function sendEmail() {
 
   if (names.length > 0) {
     var htmlMsg = createHTMLTable(names, dates, reasons);
-    htmlMsg += '<br><br><br><br> *This message was automatically generated at ' + formatToday('h:mm a (M/d/yy)') + ' by ' + appName + ' [' + appUrl + '].';
-    var subject = emailSubject + ' ' + formatToday('M/d') + ' Digest [' + names.length + ' needed]';
-    MailApp.sendEmail(toEmail, subject, "Your email client doesn't support HTML :(", {
-      htmlBody: htmlMsg
-    });
-    SpreadsheetApp.getActiveSpreadsheet().toast(names.length + ' people need subs', 'Emailed ' + toEmail, toastTimeout);
+    htmlMsg += '<br><br><br><br> *This message was automatically generated at ' +
+      formatToday('h:mm a (M/d/yy)') + ' by ' + appName + ' [' + appUrl + '].';
+    var subject = emailSubject + ' ' + formatToday('M/d') + ' Digest [' + names
+      .length +
+      ' needed]';
+    MailApp.sendEmail(toEmail, subject,
+      "Your email client doesn't support HTML :(", {
+        htmlBody: htmlMsg
+      });
+    SpreadsheetApp.getActiveSpreadsheet().toast(names.length +
+      ' people need subs', 'Emailed ' + toEmail, toastTimeout);
   } else {
-    SpreadsheetApp.getActiveSpreadsheet().toast('No one needs a sub', 'Email not sent', toastTimeout);
+    SpreadsheetApp.getActiveSpreadsheet().toast('No one needs a sub',
+      'Email not sent', toastTimeout);
   }
 }
 
 // returns a formatted html table
 function createHTMLTable(nameList, dateList, reasonList) {
-  var HTMLtable = wrapHTML('Sub Requests', 'h2', 'style="color:' + headerBgColor + '"');
-  HTMLtable += '<table  cellpadding="5" style="border:1px solid ' + headerBgColor + ';border-collapse:collapse;width:100%">';
+  var HTMLtable = wrapHTML('Sub Requests', 'h2', 'style="color:' +
+    headerBgColor +
+    '"');
+  HTMLtable += '<table  cellpadding="5" style="border:1px solid ' +
+    headerBgColor + ';border-collapse:collapse;width:100%">';
   var hDate = wrapHTML('Date', 'th', 'width="15%" align="center"');
   var hName = wrapHTML('Name', 'th', 'width="15%" align="center"');
   var hMessage = wrapHTML('Message', 'th', 'width="70%" align="center"');
-  HTMLtable += wrapHTML(hDate + hName + hMessage, 'tr', 'style="background-color:' + headerBgColor + ';color:white"');
+  HTMLtable += wrapHTML(hDate + hName + hMessage, 'tr',
+    'style="background-color:' + headerBgColor + ';color:white"');
 
   for (var i = 0; i < nameList.length; i++) {
     var bgColor = '';
@@ -162,7 +174,8 @@ function createHTMLTable(nameList, dateList, reasonList) {
 
   HTMLtable += "</table>";
   HTMLtable += '<br>Sign up: ';
-  HTMLtable += wrapHTML('LINK', 'a', 'href="' + SpreadsheetApp.getActive().getUrl() + '"');
+  HTMLtable += wrapHTML('LINK', 'a', 'href="' + SpreadsheetApp.getActive().getUrl() +
+    '"');
   return HTMLtable;
 }
 
