@@ -193,6 +193,6 @@ function formatToday(f) {
   return formatDate(new Date(), f);
 }
 
-/*** App Params ***/
+/*** App Info ***/
 var appName = 'gDoc Sub System';
 var appUrl = 'http://ultimateanu.github.io/gdoc-sub-system';
