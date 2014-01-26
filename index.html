@@ -1,90 +1,80 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="gDoc Sub System : A substitution system built on top of Google spreadsheets! Supports daily email digests." />
+<head>
+	<meta charset='utf-8' />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="description" content="gDoc Sub System : A substitution system built on top of Google spreadsheets! Supports daily email digests."
+	/>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>gDoc Sub System</title>
-  </head>
+	<title>gDoc Sub System</title>
+</head>
 
-  <body>
+<body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ultimateanu/gdoc-sub-system">View on GitHub</a>
+	<!-- HEADER -->
+	<div id="header_wrap" class="outer">
+		<header class="inner">
+			<a id="forkme_banner" href="https://github.com/ultimateanu/gdoc-sub-system">View on GitHub</a>
 
-          <h1 id="project_title">gDoc Sub System</h1>
-          <h2 id="project_tagline">A substitution system built on top of Google spreadsheets! Supports daily email digests.</h2>
+			<h1 id="project_title">gDoc Sub System</h1>
+			<h2 id="project_tagline">A substitution system built on top of Google spreadsheets! Supports daily email digests.</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ultimateanu/gdoc-sub-system/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ultimateanu/gdoc-sub-system/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+			<section id="downloads">
+				<a class="zip_download_link" href="https://github.com/ultimateanu/gdoc-sub-system/zipball/master">Download this project as a .zip file</a>
+				<a class="tar_download_link" href="https://github.com/ultimateanu/gdoc-sub-system/tarball/master">Download this project as a tar.gz file</a>
+			</section>
+		</header>
+	</div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+	<!-- MAIN CONTENT -->
+	<div id="main_content_wrap" class="outer">
+		<section id="main_content" class="inner">
 
-<h3> Instructions </h3>
-<ol>
-	<li> Create a new Google Docs spreadsheet. </li>
-	<li> Select <code>Tools > Script editor...</code>. </li>
-	<img src="images/script_menu.png" alt="script menu">
-	<li> Select <code> Blank Project</code>. </li>
-	<img src="images/blank_project.png" alt="blank project">
-	<li> Paste the code from <strong>main.js</strong>. Update the global params as needed. </li>
-	<img src="images/paste_code.png" alt="paste code">
-	<li> <code> File > Save</code>. Name your project. </li>
-	<img src="images/name_project.png" alt="name project">
-	<li> Select <code> Resources > Current project's triggers</code>. </li>
-	<li> Click <code>Add a new trigger</code>. Set a <em>Time-driven</em> trigger to send emails every morning.</li>
-	<img src="images/time_triggers.png" alt="time triggers">
-	<li> Save your changes and authorize the app to send emails.</li>
-	<!-- add timezone stuff -->
-	<li> Reopen the spreadsheet. You should now see a <em>Subs</em> menu.</li>
-	<img src="images/subs_menu.png" alt="subs menu">
-	<li> Setup your header rows and columns. The only requirement is that the first column contain dates.</li>
-	<img src="images/setup_headers.png" alt="setup headers">
+			<h3> Instructions </h3>
+			<ol>
+				<li>Create a new Google Docs spreadsheet.</li>
+				<li>Select <code>Tools > Script editor...</code>.</li>
+				<img src="images/script_menu.png" alt="script menu">
+				<li>Select <code> Blank Project</code>.</li>
+				<img src="images/blank_project.png" alt="blank project">
+				<li>Paste the code from <strong>main.js</strong>. Update the global params as needed.</li>
+				<img src="images/paste_code.png" alt="paste code">
+				<li> <code> File > Save</code>. Name your project.</li>
+				<img src="images/name_project.png" alt="name project">
+				<li>Select <code> Resources > Current project's triggers</code>.</li>
+				<li>Click <code>Add a new trigger</code>. Set a <em>Time-driven</em> trigger to send
+					emails every morning.</li>
+				<img src="images/time_triggers.png" alt="time triggers">
+				<li>Save your changes and authorize the app to send emails.</li>
+				<!-- add timezone stuff -->
+				<li>Reopen the spreadsheet. You should now see a <em>Subs</em> menu.</li>
+				<img src="images/subs_menu.png" alt="subs menu">
+				<li>Setup your header rows and columns. The only requirement is that the first column
+					contain dates.</li>
+				<img src="images/setup_headers.gif" alt="setup headers">
+				<div> <strong>Note:</strong> If everything is setup correctly, the script should start
+					coloring the cells appropriately. This image was taken on 1/25/14, so the dates
+					before that are greyed out automatically.</div>
+				<div> <strong>Tip:</strong> It might be helpful to put the day info in the second column.
+					This can be done by adding <code>=TEXT(A2, "E (MMM d)")</code> as seen above.</div>
+			</ol>
 
-	<div> <strong>Note:</strong> If everything is setup correctly, the script should start coloring the cells appropriately.
-	This image was taken on 1/25/14, so the dates before that are greyed out automatically.</div>
-	<div> <strong>Tip:</strong> It might be helpful to put the day info in the second column. This can be done by adding <code>=TEXT(A15, "E (MMM d)")</code> as seen above.</div>
+		</section>
+	</div>
 
-</ol>
+	<!-- FOOTER  -->
+	<div id="footer_wrap" class="outer">
+		<footer class="inner">
+			<p class="copyright">gDoc Sub System maintained by <a href="https://github.com/ultimateanu">ultimateanu</a>
+			</p>
+			<p>Published with <a href="http://pages.github.com">GitHub Pages</a>
+			</p>
+		</footer>
+	</div>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+</body>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">gDoc Sub System maintained by <a href="https://github.com/ultimateanu">ultimateanu</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
 </html>
