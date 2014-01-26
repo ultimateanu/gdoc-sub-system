@@ -176,9 +176,9 @@ function about() {
 
 function dateTodayDiff(d) {
   var today = new Date();
-  var dateUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-  var todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
-  return Math.floor((dateUtc - todayUtc) / (1000 * 60 * 60 * 24));
+  var date = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  var today = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  return Math.floor((date - today) / (1000 * 60 * 60 * 24));
 }
 
 function wrapHTML(inside, html, options) {
