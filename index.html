@@ -47,12 +47,15 @@
 	<li> Click <code>Add a new trigger</code>. Set a <em>Time-driven</em> trigger to send emails every morning.</li>
 	<img src="images/time_triggers.png" alt="time triggers">
 	<li> Save your changes and authorize the app to send emails.</li>
+	<!-- add timezone stuff -->
 	<li> Reopen the spreadsheet. You should now see a <em>Subs</em> menu.</li>
-	<img src="images/subs_menu.png" alt="Subs menu">
-	<li> Add dates to the first column.</li>
-	<div> Note: Depending on your global params, the first couple of rows might be headers and will be ignored when processing.</div>
+	<img src="images/subs_menu.png" alt="subs menu">
+	<li> Setup your header rows and columns. The only requirement is that the first column contain dates.</li>
+	<img src="images/setup_headers.png" alt="setup headers">
 
-
+	<div> <strong>Note:</strong> If everything is setup correctly, the script should start coloring the cells appropriately.
+	This image was taken on 1/25/14, so the dates before that are greyed out automatically.</div>
+	<div> <strong>Tip:</strong> It might be helpful to put the day info in the second column. This can be done by adding <code>=TEXT(A15, "E (MMM d)")</code> as seen above.</div>
 
 </ol>
 
