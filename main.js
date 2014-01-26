@@ -26,11 +26,11 @@ function onOpen() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var menuEntries = [];
   menuEntries.push({
-    name: "Send Email",
+    name: "Send email",
     functionName: "sendEmail"
   });
   menuEntries.push({
-    name: "Update Colors",
+    name: "Update colors",
     functionName: "updateColors"
   });
   menuEntries.push(null);
