@@ -44,6 +44,9 @@
 				<img src="images/paste_code.png" alt="paste code">
 				<li> <code> File > Save</code>. Name your project.</li>
 				<img src="images/name_project.png" alt="name project">
+				<li>Select <code> File > Project properties</code>. Set the appropriate timezone and save.</li>
+				<img src="images/timezone.png" alt="timezone">
+
 				<li>Select <code> Resources > Current project's triggers</code>.</li>
 				<li>Click <code>Add a new trigger</code>. Set a <em>Time-driven</em> trigger to send
 					emails every morning.</li>
@@ -55,11 +58,20 @@
 				<li>Setup your header rows and columns. The only requirement is that the first column
 					contain dates.</li>
 				<img src="images/setup_headers.gif" alt="setup headers">
-				<div> <strong>Note:</strong> If everything is setup correctly, the script should start
+				<ul>
+				<li><div> <strong>Note:</strong> If everything is setup correctly, the script should start
 					coloring the cells appropriately. This image was taken on 1/25/14, so the dates
-					before that are greyed out automatically.</div>
-				<div> <strong>Tip:</strong> It might be helpful to put the day info in the second column.
-					This can be done by adding <code>=TEXT(A2, "E (MMM d)")</code> as seen above.</div>
+					before that are greyed out automatically.</div></li>
+				<li><div> <strong>Tip:</strong> It might be helpful to put the day info in the second column.
+					This can be done by adding <code>=TEXT(A2, "E (MMM d)")</code> as seen above.</div></li>
+				</ul>
+				<li>The <em>Subs</em> menu can be used to manually do certain tasks.</li>
+				<ul>
+				<li><code>Send email</code> can be used to manually send an email anytime.</li>
+				<li><code>Update colors</code> can be used to force all colors to update.</li>
+				</ul>
+					<!-- todo: update email to lowercase -->
+				<img src="images/send_email.png" alt="send email">
 			</ol>
 
 		</section>
