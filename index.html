@@ -4,16 +4,12 @@
 <head>
 	<meta charset='utf-8' />
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-	<meta name="description" content="gDoc Sub System : A substitution system built on top of Google spreadsheets! Supports daily email digests."
-	/>
-
+	<meta name="description" content="gDoc Sub System : A substitution system built on top of Google spreadsheets! Supports daily email digests."/>
 	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
 	<title>gDoc Sub System</title>
 </head>
 
 <body>
-
 	<!-- HEADER -->
 	<div id="header_wrap" class="outer">
 		<header class="inner">
@@ -33,30 +29,31 @@
 	<div id="main_content_wrap" class="outer">
 		<section id="main_content" class="inner">
 
-			<h3> Instructions </h3>
+			<h3> Setup </h3>
 			<ol>
 				<li>Create a new Google Docs spreadsheet.</li>
 				<li>Select <code>Tools > Script editor...</code>.</li>
 				<img src="images/script_menu.png" alt="script menu">
+				
 				<li>Select <code> Blank Project</code>.</li>
-				<!--img src="images/blank_project.png" alt="blank project"-->
 				<li>Paste the code from <strong>main.js</strong>. Update the global params as needed.</li>
 				<img src="images/paste_code.png" alt="paste code">
+				
 				<li>Select <code> File > Save</code>. Name your project.</li>
 				<img src="images/name_project.png" alt="name project">
-				<li>Select <code> File > Project properties</code>. Set the appropriate timezone and
-					save.
-				</li>
+				
+				<li>Select <code> File > Project properties</code>. Set the appropriate timezone.</li>
 				<img src="images/timezone.png" alt="timezone">
 
 				<li>Select <code> Resources > Current project's triggers</code>.</li>
-				<li>Click <code>Add a new trigger</code>. Set a <em>Time-driven</em> trigger to send
-					emails every morning.</li>
-				<img src="images/time_triggers.png" alt="time triggers">
+				<li>Click <code>Add a new trigger</code>.</li>
+				<ol type="i">
+					<li>Set a <em>Time-driven</em> trigger to update colors. This will grey out past dates.</li>
+					<li>Add a trigger to send emails every morning.</li>
+				</ol>
+				<img src="images/triggers.png" alt="triggers">
 				<li>Save your changes and authorize the app to send emails.</li>
-				<!-- add timezone stuff -->
 				<li>Reopen the spreadsheet. You should now see a <em>Subs</em> menu.</li>
-				<img src="images/subs_menu.png" alt="subs menu">
 				<li>Setup your header rows and columns. The only requirement is that the first column
 					contain dates.</li>
 				<img src="images/setup_headers.gif" alt="setup headers">
@@ -68,16 +65,19 @@
 						This can be done by adding <code>=TEXT(A2, "E (MMM d)")</code> as seen above.</li>
 				</ul>
 				<li>The <em>Subs</em> menu can be used to manually do certain tasks.</li>
-				<ul>
-					<li><code>Send email</code> can be used to manually send an email anytime.</li>
+				<ol type="i">
+					<li><code>Send email</code> can be used to manually send an email at anytime.</li>
 					<li><code>Update colors</code> can be used to force all colors to update.</li>
-				</ul>
-				<!-- todo: update email to lowercase -->
+				</ol>
 				<img src="images/send_email.png" alt="send email">
 				<ul>
 					<li><strong>Note:</strong> You will need to provide authorization the first time
 						you use the <em>Subs</em> menu.</li>
 				</ul>
+				The sub system is now ready! Share the spreadsheet link with your group and start
+				using.
+				<img src="images/final.png" alt="final">The generated emails will look like this.
+				<img src="images/email.png" alt="email">
 			</ol>
 
 		</section>
@@ -87,8 +87,6 @@
 	<div id="footer_wrap" class="outer">
 		<footer class="inner">
 			<p class="copyright">gDoc Sub System maintained by <a href="https://github.com/ultimateanu">ultimateanu</a>
-			</p>
-			<p>Published with <a href="http://pages.github.com">GitHub Pages</a>
 			</p>
 		</footer>
 	</div>

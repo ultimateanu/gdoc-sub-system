@@ -35,9 +35,11 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
+/*
 ol, ul {
   list-style: none;
 }
+*/
 
 table {
   border-collapse: collapse;
@@ -206,7 +208,7 @@ ul {
 }
 
 ol {
-  list-style: decimal inside;
+  /*list-style: decimal inside;*/
   padding-left: 20px;
 }
 
